@@ -5,9 +5,12 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { useRouter  } from 'expo-router';
+import { useContext } from 'react';
+import { UserContext } from '../../hooks/useContext';
 
 export default function HomeScreen() {
   const router = useRouter();
+  const {setTotal, total} = useContext(UserContext);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -19,7 +22,8 @@ export default function HomeScreen() {
         initialValues={{ incomes: '', outcomes: '' }}
         onSubmit={values => {
           try {
-            console.log(values);
+            console.log('from formik', values);
+            setTotal(values);
             router.push('/howShouldSave')
           } catch(err) {
             console.log(err)
@@ -31,19 +35,50 @@ export default function HomeScreen() {
           <View style={styles.label}>
             <Text>Ingresos / Incomes</Text>
               <TextInput
-                onChangeText={handleChange('incomes')}
+                onChangeText={(text) => {
+                  // Remove non-numeric characters
+                  const numericText = text.replace(/[^0-9]/g, '');
+                  // Format the number as currency
+                  const formattedValue = new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  }).format(numericText / 100); // Divide by 100 to adjust for cents
+      
+                  handleChange('incomes')(numericText); // Store the raw number
+                  // Update the displayed value
+                  // You can also use a state to manage the displayed value if needed
+                }}
                 onBlur={handleBlur('incomes')}
                 value={values.incomes}
                 style={styles.textInput}
+                keyboardType="numeric"
+                
               />
           </View>
            <View style={styles.label}>
               <Text>Gastos Fijos / Fixed Outcomes</Text>
               <TextInput
-                onChangeText={handleChange('outcomes')}
+                onChangeText={(text) => {
+                  // Remove non-numeric characters
+                  const numericText = text.replace(/[^0-9]/g, '');
+                  // Format the number as currency
+                  const formattedValue = new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  }).format(numericText / 100); // Divide by 100 to adjust for cents
+      
+                  handleChange('outcomes')(numericText); // Store the raw number
+                  // Update the displayed value
+                  // You can also use a state to manage the displayed value if needed
+                }}
                 onBlur={handleBlur('outcomes')}
                 value={values.outcomes}
                 style={styles.textInput}
+                keyboardType="numeric"
               />
             </View>
             <View style={styles.label}>
