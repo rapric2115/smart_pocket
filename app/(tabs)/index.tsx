@@ -1,9 +1,7 @@
-import { Button, StyleSheet, TextInput, View, SafeAreaView, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, TextInput, View, SafeAreaView, Text, TouchableOpacity } from 'react-native';
 import { HelloWave } from '@/components/HelloWave';
 import { Formik } from 'formik';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+
 import { useRouter  } from 'expo-router';
 import { useContext } from 'react';
 import { UserContext } from '../../hooks/useContext';
