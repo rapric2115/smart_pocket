@@ -80,7 +80,7 @@ const FirstScreen = () => {
                 <Text style={{marginHorizontal: 10}}>Monthly Paidment</Text>
                 </View>
             </View>
-            <Text style={{fontWeight: '600', fontSize: 18}}>$ {mySaving.saveIt / (month === 0 ? 1 : month)}</Text>
+            <Text style={{fontWeight: '600', fontSize: 18}}>$ {(mySaving.saveIt / (month === 0 ? 1 : month)).toFixed(2)}</Text>
         </View>
         <View style={{flexDirection: 'row', alignSelf: 'center', marginTop: 25}}>
             <View style={[styles.pressBtn, {borderTopLeftRadius: 50, borderBottomLeftRadius: 50, overflow: 'hidden'}]}>
@@ -113,6 +113,7 @@ const FirstScreen = () => {
                 <RNPickerSelect
                     onValueChange={(value) => setInterestRate(value)}
                     items={[
+                        { label: 'Seleccione Tasa / Select Interst Rate', value: null},
                         { label: '3% de Interes', value: 3 },
                         { label: '4% de Interes', value: 4 },
                         { label: '5% de Interes', value: 5 },
@@ -179,7 +180,7 @@ const styles = StyleSheet.create({
     padding: 20
   },
   title: {
-    fontSize: 16, 
+    fontSize: 18, 
     fontWeight: '600',
     marginTop: 20
   },

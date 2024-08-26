@@ -1,10 +1,9 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { StyleSheet, Button, Image, Platform, View, Text, TextInput, TouchableOpacity, Dimensions, Pressable } from 'react-native';
+import { StyleSheet, Button, Image, Platform, View, Text, TextInput, TouchableOpacity, Dimensions, Pressable, ScrollView } from 'react-native';
 import { Formik } from 'formik';
 import { HelloWave } from '@/components/HelloWave';
 import { useState } from 'react';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import DatePicker from 'react-native-date-picker';
 import { useContext } from 'react';
 import { UserContext } from '../../hooks/useContext';
 import { useRouter  } from 'expo-router';
@@ -16,7 +15,6 @@ export default function TabTwoScreen() {
   const {setDateThatIWantIt, setMySaving} = useContext(UserContext);
   const [date, setDate] = useState(new Date());
   const [display, setDisplay] = useState(false);
-  const [open, setOpen] = useState(false);
 
   const onChange = (event, selectedDate) => {   
     if (event.type === 'set') { // Check if the date is set
@@ -31,8 +29,10 @@ export default function TabTwoScreen() {
     setDisplay(true);
   };
 
+
+
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.titleContainer}>
         <Text style={styles.title}>Como y Cuando alcanzo mi Meta de Ahorro! / How and When I reach my Saving Goal!</Text>
         <HelloWave />
@@ -88,19 +88,6 @@ export default function TabTwoScreen() {
                 />
               )}
 
-              <Button title="Open" onPress={() => setOpen(true)} />
-              <DatePicker
-                modal
-                open={open}
-                date={date}
-                onConfirm={(date) => {
-                  setOpen(false)
-                  setDate(date)
-                }}
-                onCancel={() => {
-                  setOpen(false)
-                }}
-              />
               <Text style={{marginTop: 10, alignSelf: 'center', fontWeight: 'bold'}}>selected: {date.toLocaleString()}</Text>
             </View>
             <View style={styles.label}>
@@ -114,7 +101,7 @@ export default function TabTwoScreen() {
           </View>
         )}
       </Formik>
-    </View>    
+    </ScrollView>    
   );
 }
 
@@ -165,5 +152,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 16,
     fontWeight: 'bold'
-  }
+  },
 });

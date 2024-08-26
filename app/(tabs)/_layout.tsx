@@ -31,6 +31,15 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
+          href: null,
+          tabBarStyle: {
+            display: 'none',
+          },
+        }}
+      />
+      <Tabs.Screen
+        name="HelloPage"
+        options={{
           title: 'Home',
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color}/>

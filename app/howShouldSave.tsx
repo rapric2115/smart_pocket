@@ -123,10 +123,10 @@ const FirstScreen = () => {
             to stay motivated and celebrate milestones.
         </Text>
       </View>
-       <View style={[styles.tableRow, {padding: 20, marginBottom: 20}]}>
+       {/* <View style={[styles.tableRow, {padding: 20, marginBottom: 20}]}>
           <Text style={[styles.tableText, {paddingLeft: 25, paddingTop: 20}]}>Planificador / Plan Maker</Text>
           <Ionicons name="add-circle" size={55} color="#E3730A" />                   
-        </View>
+        </View> */}
       
     </ScrollView>
   );
