@@ -4,6 +4,7 @@ import { Formik } from 'formik';
 import { HelloWave } from '@/components/HelloWave';
 import { useState } from 'react';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import DatePicker from 'react-native-date-picker';
 import { useContext } from 'react';
 import { UserContext } from '../../hooks/useContext';
 import { useRouter  } from 'expo-router';
@@ -15,6 +16,7 @@ export default function TabTwoScreen() {
   const {setDateThatIWantIt, setMySaving} = useContext(UserContext);
   const [date, setDate] = useState(new Date());
   const [display, setDisplay] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const onChange = (event, selectedDate) => {   
     if (event.type === 'set') { // Check if the date is set
@@ -85,6 +87,20 @@ export default function TabTwoScreen() {
                   display="default"
                 />
               )}
+
+              <Button title="Open" onPress={() => setOpen(true)} />
+              <DatePicker
+                modal
+                open={open}
+                date={date}
+                onConfirm={(date) => {
+                  setOpen(false)
+                  setDate(date)
+                }}
+                onCancel={() => {
+                  setOpen(false)
+                }}
+              />
               <Text style={{marginTop: 10, alignSelf: 'center', fontWeight: 'bold'}}>selected: {date.toLocaleString()}</Text>
             </View>
             <View style={styles.label}>
