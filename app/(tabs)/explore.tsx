@@ -62,6 +62,8 @@ export default function TabTwoScreen() {
                 value={values.saveIt}
                 style={styles.textInput}
                 keyboardType="numeric"
+                accessibilityLabel="Voy ahorrar / I'm going to Save"
+                placeholder="Voy ahorrar / I'm going to Save" 
               />
             </View>
             <View style={styles.label}>
@@ -71,6 +73,8 @@ export default function TabTwoScreen() {
                 onBlur={handleBlur('forWhat')}
                 value={values.forWhat}
                 style={styles.textInput}
+                accessibilityLabel="Que voy a Comprar / I'm going to Buy"
+                placeholder="Que voy a Comprar / I'm going to Buy"
               />
             </View>
             <View>
@@ -85,6 +89,7 @@ export default function TabTwoScreen() {
                   value={date}
                   mode="date" // You can change this to "time" if needed
                   display="default"
+                  accentColor={'#092f5d'}
                 />
               )}
 
@@ -142,7 +147,7 @@ const styles = StyleSheet.create({
   btn: {
     width: 305,
     height: 50,
-    backgroundColor: '#0b3a73',
+    backgroundColor: '#092f5d',
     alignSelf: 'center',
     justifyContent: 'center',
     marginTop: 50

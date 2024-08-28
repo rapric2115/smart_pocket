@@ -52,7 +52,8 @@ export default function HomeScreen() {
                 value={values.incomes}
                 style={styles.textInput}
                 keyboardType="numeric"
-                
+                accessibilityLabel="Ingresos / Incomes"
+                placeholder="Ingresos / Incomes"                
               />
           </View>
            <View style={styles.label}>
@@ -77,6 +78,8 @@ export default function HomeScreen() {
                 value={values.outcomes}
                 style={styles.textInput}
                 keyboardType="numeric"
+                accessibilityLabel="Gastos / Outcomes"
+                placeholder="Gastos / Outcomes"
               />
             </View>
             <View style={styles.label}>

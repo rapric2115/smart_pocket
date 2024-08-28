@@ -16,7 +16,7 @@ export default function TabLayout() {
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: '#0b3a73', // Set background color
+          backgroundColor: '#092f5d', // Set background color
           height: 60, // Set height
           marginBottom: 10, // Set margin bottom
           borderRadius: 50, // Set border radius

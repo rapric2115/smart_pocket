@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     flex: 0.9,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#0b3a73',
+    backgroundColor: '#092f5d',
     borderBottomRightRadius: 65,
     borderBottomLeftRadius: 65,
   },
@@ -53,15 +53,17 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#E3730A',
-    paddingVertical: 12,
+    paddingVertical: 14, // Increased from 12 to 14
     paddingHorizontal: 24,
     borderRadius: 25,
     marginBottom: 20,
     alignSelf: 'center',
+    minHeight: 48, // Ensure minimum height is 48dp
   },
   buttonText: {
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
+    textAlign: 'center', // Center the text
   },
 });
