@@ -113,13 +113,17 @@ const FirstScreen = () => {
                 <RNPickerSelect
                     onValueChange={(value) => setInterestRate(value)}
                     items={[
-                        { label: 'Seleccione Tasa / Select Interst Rate', value: null},
                         { label: '3% de Interes', value: 3 },
                         { label: '4% de Interes', value: 4 },
                         { label: '5% de Interes', value: 5 },
                         { label: '6% de Interes', value: 6 },
                         { label: '7% de Interes', value: 7 },
                     ]}
+                    placeholder={{
+                        label: 'Seleccione Tasa / Select Interest Rate',
+                        value: null,
+                        color: '#9EA0A4', // Optional: Customize placeholder text color
+                    }}
                 />
             </View>
             <View style={{marginTop: 15}}>

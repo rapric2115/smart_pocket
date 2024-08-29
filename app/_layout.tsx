@@ -30,7 +30,6 @@ export default function RootLayout() {
   return (
     <UserProvider>
       <Stack>
-        <Stack.Screen name="HelloPage" options={{headerShown: false}} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
